@@ -133,5 +133,7 @@ output/*
 
 .pre-commit-config.yaml
 
-src/data_out/*
+
+# necessary to avoid tracking plots and output data from statistics part
 src/plots/*
+src/data_out/*
