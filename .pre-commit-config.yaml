@@ -4,3 +4,21 @@ repos:
     hooks:
       - id: nbstripout
         files: ".ipynb"
+
+  - repo: https://github.com/psf/black
+    rev: 22.1.0
+    hooks:
+      - id: black-jupyter
+        language_version: python3.8
+        args: ["--line-length=79"]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 4.0.1 
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/s-weigand/flake8-nb
+    rev: v0.4.0 
+    hooks:
+      - id: flake8-nb
+        args: ["--max-line-length=88", "--extend-ignore=E203, E501"]
