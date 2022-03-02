@@ -132,3 +132,7 @@ dmypy.json
 output/*
 
 .pre-commit-config.yaml
+
+# necessary to avoid tracking plots and output data from statistics part
+src/plots/*
+src/data_out/*
