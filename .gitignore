@@ -135,5 +135,6 @@ output/*
 
 
 # necessary to avoid tracking plots and output data from statistics part
-src/plots/*
-src/data_out/*
+*.pdf
+*.csv
+*.npy
