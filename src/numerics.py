@@ -1,8 +1,10 @@
 import numpy as np
 
 
-class Numerics:
-    def __init__(self, efield, nstate, threshold):
+class NumericsClass:
+    def __init__(self, data, threshold):
+        efield = data["efield"]
+        nstate = data["nstate"]
         self.efield_time, self.efield_data = efield[:, 0], self._rm_blw_thrsh(
             efield[:, 1:], threshold
         )
