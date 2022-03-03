@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sn
 
 
 class InClass:
@@ -64,5 +66,91 @@ class InClass:
 
 
 class OutClass:
-    def __init__(self, savepdf=False):
+    def __init__(self, statistics, numerics, savepdf=False, write_out=False):
+
+        self.statistics = statistics
+        self.numerics = numerics
         self.savepdf = savepdf  # flag whether to save things as pdf
+        self.write_out = write_out  # flag whether to write out data
+
+    def plot_statistics(self):
+        # Plot all statistic stuff
+
+        # Task 1
+        sn.relplot(
+            data=self.statistics.df_expec, kind="line", x="time", y="<z>"
+        )
+        plt.show()
+
+        sn.pairplot(self.statistics.df_expec, corner=True)
+        plt.show()
+
+        # Task 2
+        sn.pairplot(self.statistics.df_expec2, corner=True)
+        if self.savepdf:
+            plt.savefig(
+                "task2_relevant_data.pdf", format="pdf", bbox_inches="tight"
+            )
+        plt.show()
+
+        # Task 3
+        sn.lineplot(
+            x="time",
+            y="value",
+            hue="variable",
+            data=pd.melt(self.statistics.df_npop2, ["time"]),
+        )
+        plt.show()
+
+        # Task 5
+        plt.bar(self.statistics.x, self.statistics.out_dist)
+        plt.xticks(self.statistics.x, ("x", "y", "z"))
+        if self.savepdf:
+            plt.savefig("task5_out.pdf", format="pdf", bbox_inches="tight")
+        plt.show()
+
+    def statistics_out(self):
+        # Write output files (expect for plots) for statistics
+        if self.write_out:
+            # Task 4:
+            self.statistics.corr2.to_csv("task4_out.csv")
+
+            # Task 5:
+            np.save("task5_out.npy", self.statistics.out_dist)
+
+    def plot_numerics(self):
+        # Plot all numerics stuff
+
+        # Task 1
+        data = self.numerics.efield
+        for i in range(1, data.shape[1]):
+            plt.figure(i)
+            plt.plot(data[:, 0], data[:, i])
+            plt.title("Column {:3d}".format(i))
+            plt.show()
+
+        # Task 2
+        for i in range(self.numerics.cols.shape[1]):
+            plt.figure(i)
+            plt.plot(self.numerics.freq, self.numerics.fcols[:, i])
+            plt.title("RFFT Column {:3d}".format(i + 1))
+            if self.savepdf:
+                plt.savefig("RFFT-{:03}.pdf".format(i + 1))
+            plt.show()
+
+        # Task 4
+        time = self.numerics.time
+        autocorr = self.numerics.autocorr
+        plt.plot(time, np.real(autocorr))
+        plt.plot(time, np.imag(autocorr))
+        plt.plot(time, np.abs(autocorr))
+        plt.legend({"Re", "Im", "Abs"})
+        if self.savepdf:
+            plt.savefig("Autocorr.pdf")
+        plt.show()
+
+        # Task 6
+        freq = self.numerics.freq2
+        fcols = self.numerics.fcols2
+        plt.plot(freq[freq > 0.0], np.abs(fcols[freq > 0.0]) ** 2)
+        plt.show()
