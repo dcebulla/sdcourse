@@ -61,3 +61,8 @@
         - freq2 (Task 5/6)
         - fcols2 (Task 5/6)
 
+## Tasks:
+Kieran: Statistics
+Dominik: Numerics
+Ihno: Other stuff
+
