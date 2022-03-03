@@ -2,6 +2,8 @@
 - Import packages 
     - numpy as np
     - pandas as pd
+    - matplotlib.pyplot as plt
+    - seaborn as sn
 - Constants
     - thres_stat
     - thres_num
