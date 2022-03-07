@@ -1,9 +1,9 @@
 
 class StatisticsClass:
-    def __init__(self, expec, npop, table, thres_stat=1.0e-5):
-        self.df_expec = expec
-        self.df_npop = npop
-        self.table = np.nan_to_num(table)
+    def __init__(self, table, thres_stat=1.0e-5):
+        self.df_expec = df["expec"]
+        self.df_npop = df["npop"]
+        self.table = np.nan_to_num(df["table"])
         self.thres_stat = thres_stat
 
     def run(self):
