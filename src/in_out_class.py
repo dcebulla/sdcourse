@@ -24,13 +24,42 @@ import seaborn as sn
 
 class InClass:
     """
-    Class for reading the data and outputting the results.
+    Class for reading the data.
 
+    Objects of the InClass read the data files in a given path.
+    You can either read all files at once using read_data with
+    the default option or read the numerics and statistics part
+    seperately using read_statistics and read_numerics or you
+    can define which files to read by passing a list of the file
+    names to read_data.
 
+    Args:
+        data_path (str): (Relative) Path of the directory with the
+            data files.
+            Default: "data/"
 
+    Attributes:
+        data_path (str):  (Relative) Path of the directory with the
+            data files.
+        expec (none or pandas dataframe): Data of the expec.t file
+        npop (none or pandas dataframe): Data of the npop.t file
+        table (none or numpy array): Data of the table.dat file
+        efield (none or numpy array): Data of the efield.t file
+        nstate_i (none or numpy array): Data of the nstate_i.t file
+        read_functions (dict): Dictionary that maps file name to
+            suitable tailored reader function
+        names_to_attributes (dict): Dictionary that maps file names to
+            class attributes
     """
 
     def __init__(self, data_path="data/"):
+        """Initialize the object
+
+        Args:
+            data_path (str): (Relative) Path of the directory with the
+                data files.
+                Default: "data/"
+        """
         self.data_path = data_path  # general data path
 
         # statistics related data fields
@@ -74,7 +103,19 @@ class InClass:
             "nstate_i.t",
         ],
     ):
-        # This function reads all the files whose names are given as input
+        """
+        Reads all the files whose names are given as input.
+
+        Args:
+            file_names (list of str): List of file names.
+                Default: file_names=[
+                "expec.t",
+                "npop.t",
+                "table.dat",
+                "efield.t",
+                "nstate_i.t",
+                ]
+        """
         for name in file_names:
             full_path = self.data_path + name
             vars(self)[self.names_to_attributes[name]] = self.read_functions[
@@ -82,24 +123,73 @@ class InClass:
             ](full_path)
 
     def read_statistics_data(self):
-        # for convenience, this call read_data only w. the files for statistics
+        """
+        Calls read_data with file names that correspond to statistics.
+
+        The relevant file names are ["expec.t", "npop.t", "table.dat"]
+
+        """
+
         self.read_data(file_names=["expec.t", "npop.t", "table.dat"])
 
     def read_numerics_data(self):
-        # for convenience, this call read_data only with the files for numerics
+        """
+        Calls read_data with file names that correspond to numerics.
+
+        The relevant file names are ["efield.t", "nstate_i.t"]
+
+        """
+
         self.read_data(file_names=["efield.t", "nstate_i.t"])
 
 
 class OutClass:
+    """
+    Class for outputting the results.
+
+    Based on a statistics and a numerics object the OutClass creates
+    objects which provide functions to plot relevant plots and save
+    relevant results. Plots can be saved to files, too.
+
+    Args:
+        statistics (object of StatisticsClass): Object of
+            StatisticsClass which contains the results of the
+            statistical analysis.
+        numerics (object of NumericsClass): Object of
+            NumericsClass which contains the results of the
+            statistical analysis.
+        savepdf (bool): Flag whether the plots should be saved to PDF
+            files (True) or not (False). Default: False
+        write_out (bool): Flag whether the results should be saved in
+            files (True) or not (False). Default: False
+
+    Attributes:
+        statistics (object of StatisticsClass): Object of
+            StatisticsClass which contains the results of the
+            statistical analysis.
+        numerics (object of NumericsClass): Object of
+            NumericsClass which contains the results of the
+            statistical analysis.
+        savepdf (bool): Flag whether the plots should be saved to PDF
+            files (True) or not (False). Default: False
+        write_out (bool): Flag whether the results should be saved in
+            files (True) or not (False). Default: False
+    """
+
     def __init__(self, statistics, numerics, savepdf=False, write_out=False):
 
         self.statistics = statistics
         self.numerics = numerics
-        self.savepdf = savepdf  # flag whether to save things as pdf
-        self.write_out = write_out  # flag whether to write out data
+        self.savepdf = savepdf
+        self.write_out = write_out
 
     def plot_statistics(self):
-        # Plot all statistic stuff
+        """
+        Plot all statistic plots. Possibly save them.
+
+        The plots will be displayed in the main notebook. Depending on
+        the flag savepdf, the plots are also saved to pdf files.
+        """
 
         # Task 1
         sn.relplot(
@@ -135,7 +225,13 @@ class OutClass:
         plt.show()
 
     def statistics_out(self):
-        # Write output files (expect for plots) for statistics
+        """
+        Possibly write output files (expect for plots) for statistics.
+
+        The output files are:
+            - task4_out.csv
+            - task5_out.npy
+        """
         if self.write_out:
             # Task 4:
             self.statistics.corr2.to_csv("task4_out.csv")
@@ -144,7 +240,12 @@ class OutClass:
             np.save("task5_out.npy", self.statistics.out_dist)
 
     def plot_numerics(self):
-        # Plot all numerics stuff
+        """
+        Plot all numerics plots. Possibly save them.
+
+        The plots will be displayed in the main notebook. Depending on
+        the flag savepdf, the plots are also saved to pdf files.
+        """
 
         # Task 1
         data = self.numerics.efield_data
