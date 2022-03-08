@@ -98,7 +98,6 @@ class OutClass:
             x="time",
             y="value",
             hue="variable",
-            # data=pd.melt(self.statistics.df_npop2, ["time"]),
             data=self.statistics.df_npop2,
         )
         plt.show()
@@ -123,15 +122,16 @@ class OutClass:
         # Plot all numerics stuff
 
         # Task 1
-        data = self.numerics.efield
-        for i in range(1, data.shape[1]):
+        data = self.numerics.efield_data
+        for i in range(0, data.shape[1]):
             plt.figure(i)
-            plt.plot(data[:, 0], data[:, i])
+            # plt.plot(data[:, 0], data[:, i])
+            plt.plot(self.numerics.efield_time, data[:, i])
             plt.title("Column {:3d}".format(i))
             plt.show()
 
         # Task 2
-        for i in range(self.numerics.cols.shape[1]):
+        for i in range(self.numerics.fcols.shape[1]):
             plt.figure(i)
             plt.plot(self.numerics.freq, self.numerics.fcols[:, i])
             plt.title("RFFT Column {:3d}".format(i + 1))
@@ -140,7 +140,7 @@ class OutClass:
             plt.show()
 
         # Task 4
-        time = self.numerics.time
+        time = self.numerics.nstate_time
         autocorr = self.numerics.autocorr
         plt.plot(time, np.real(autocorr))
         plt.plot(time, np.imag(autocorr))
