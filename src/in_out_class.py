@@ -98,7 +98,8 @@ class OutClass:
             x="time",
             y="value",
             hue="variable",
-            data=pd.melt(self.statistics.df_npop2, ["time"]),
+            # data=pd.melt(self.statistics.df_npop2, ["time"]),
+            data=self.statistics.df_npop2,
         )
         plt.show()
 
