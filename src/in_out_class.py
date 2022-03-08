@@ -1,3 +1,21 @@
+"""
+This module provides the classes InClass and OutClass.
+
+From this module one can import the classes InClass and OutClass.
+The class InClass allows to create objects that read in the data.
+The class OutClass allows to create objects that output the results.
+
+Required Packages:
+    - pandas
+    - numpy
+    - matplotlib.pyplot
+    - seaborn
+
+Provides:
+    - InClass
+    - OutClass
+"""
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,6 +23,13 @@ import seaborn as sn
 
 
 class InClass:
+    """
+    Class for reading the data and outputting the results.
+
+
+
+    """
+
     def __init__(self, data_path="data/"):
         self.data_path = data_path  # general data path
 
