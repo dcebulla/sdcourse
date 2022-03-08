@@ -16,6 +16,7 @@ Provides:
     - OutClass
 """
 
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,8 +24,7 @@ import seaborn as sn
 
 
 class InClass:
-    """
-    Class for reading the data.
+    """Class for reading the data.
 
     Objects of the InClass read the data files in a given path.
     You can either read all files at once using read_data with
@@ -103,8 +103,7 @@ class InClass:
             "nstate_i.t",
         ],
     ):
-        """
-        Reads all the files whose names are given as input.
+        """Reads all the files whose names are given as input.
 
         Args:
             file_names (list of str): List of file names.
@@ -123,8 +122,7 @@ class InClass:
             ](full_path)
 
     def read_statistics_data(self):
-        """
-        Calls read_data with file names that correspond to statistics.
+        """Calls read_data with file names that correspond to statistics.
 
         The relevant file names are ["expec.t", "npop.t", "table.dat"]
 
@@ -133,19 +131,16 @@ class InClass:
         self.read_data(file_names=["expec.t", "npop.t", "table.dat"])
 
     def read_numerics_data(self):
-        """
-        Calls read_data with file names that correspond to numerics.
+        """Calls read_data with file names that correspond to numerics.
 
         The relevant file names are ["efield.t", "nstate_i.t"]
 
         """
-
         self.read_data(file_names=["efield.t", "nstate_i.t"])
 
 
 class OutClass:
-    """
-    Class for outputting the results.
+    """Class for outputting the results.
 
     Based on a statistics and a numerics object the OutClass creates
     objects which provide functions to plot relevant plots and save
@@ -225,8 +220,7 @@ class OutClass:
         plt.show()
 
     def statistics_out(self):
-        """
-        Possibly write output files (expect for plots) for statistics.
+        """Possibly write output files (expect for plots) for statistics.
 
         The output files are:
             - task4_out.csv
@@ -240,8 +234,7 @@ class OutClass:
             np.save("task5_out.npy", self.statistics.out_dist)
 
     def plot_numerics(self):
-        """
-        Plot all numerics plots. Possibly save them.
+        """Plot all numerics plots. Possibly save them.
 
         The plots will be displayed in the main notebook. Depending on
         the flag savepdf, the plots are also saved to pdf files.

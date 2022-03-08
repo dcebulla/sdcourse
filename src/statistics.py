@@ -1,11 +1,12 @@
-import numpy as np
-import pandas as pd
 """Statistical analysis of data.
 
 This module performs the statistical analysis of the data,
 including data cleaning, correlation and distance calculations as
 well as preparations for plotting.
 """
+
+import numpy as np
+import pandas as pd
 
 
 class StatisticsClass:
