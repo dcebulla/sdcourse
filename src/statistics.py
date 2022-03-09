@@ -92,7 +92,7 @@ class StatisticsClass:
 
         Args:
             list_ref (list): List of reference vectors
-            list_comp (list): List of vectors that are compared to 
+            list_comp (list): List of vectors that are compared to
             reference vectors
             vectors (list): List of vector data
         """
@@ -105,6 +105,9 @@ class StatisticsClass:
 
     def clean_data(self):
         """Cleans expec and npop data based on significance"""
+
+        # TODO: Handle invalid thresv values
+
         self.df_expec2, indices = self._check_if_significant(
             self.df_expec, self.threshv
         )
