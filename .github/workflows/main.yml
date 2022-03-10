@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
+  docs_and_test:
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
     strategy:
@@ -33,7 +33,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Build sphinx documentation
+      run: |
+        cd docs/
+        make html
     - name: Run linters
       run: |
         flake8
         flake8-nb --extend-ignore="E203, E501"
+    - name: Run pytest
+      run: |
+        cd src/
+        python –m pytest
