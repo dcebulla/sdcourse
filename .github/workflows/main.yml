@@ -35,6 +35,5 @@ jobs:
         pip install -r requirements.txt
     - name: Run linters
       run: |
-        black src/
         flake8
-        flake8-nb
+        flake8-nb --extend-ignore="E203, E501"
