@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>numerics module &#8212; SDCourse 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="statistics module" href="statistics.html" />
+    <link rel="prev" title="in_out_class module" href="in_out_class.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-numerics">
+<span id="numerics-module"></span><h1>numerics module<a class="headerlink" href="#module-numerics" title="Permalink to this headline">¶</a></h1>
+<p>Provides functionality for numerical data analysis.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="numerics.NumericsClass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">numerics.</span></span><span class="sig-name descname"><span class="pre">NumericsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numerics.NumericsClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that encapsulates methods for the numerical data analysis.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.efield_time">
+<span class="sig-name descname"><span class="pre">efield_time</span></span><a class="headerlink" href="#numerics.NumericsClass.efield_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time of efield data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.efield_data">
+<span class="sig-name descname"><span class="pre">efield_data</span></span><a class="headerlink" href="#numerics.NumericsClass.efield_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Actual efield data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.nstate_time">
+<span class="sig-name descname"><span class="pre">nstate_time</span></span><a class="headerlink" href="#numerics.NumericsClass.nstate_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time of nstate_i data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.nstate_data">
+<span class="sig-name descname"><span class="pre">nstate_data</span></span><a class="headerlink" href="#numerics.NumericsClass.nstate_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Actual complex nstate_i data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.fcols">
+<span class="sig-name descname"><span class="pre">fcols</span></span><a class="headerlink" href="#numerics.NumericsClass.fcols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fourier transform of <cite>efield_data</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.freq">
+<span class="sig-name descname"><span class="pre">freq</span></span><a class="headerlink" href="#numerics.NumericsClass.freq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frequency  of <cite>efield_data</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.autocorr">
+<span class="sig-name descname"><span class="pre">autocorr</span></span><a class="headerlink" href="#numerics.NumericsClass.autocorr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autocorrelation of <cite>nstate_data</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.fcols2">
+<span class="sig-name descname"><span class="pre">fcols2</span></span><a class="headerlink" href="#numerics.NumericsClass.fcols2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fourier transform of <cite>autocorr</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="numerics.NumericsClass.freq2">
+<span class="sig-name descname"><span class="pre">freq2</span></span><a class="headerlink" href="#numerics.NumericsClass.freq2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frequency of FFT for <cite>autocorr</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="numerics.NumericsClass.compute_autocorrelation">
+<span class="sig-name descname"><span class="pre">compute_autocorrelation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numerics.NumericsClass.compute_autocorrelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes autocorrelation of <cite>nstate_data</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="numerics.NumericsClass.compute_fft">
+<span class="sig-name descname"><span class="pre">compute_fft</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numerics.NumericsClass.compute_fft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes complex FFT for <cite>autocorr</cite> (autocorrelation).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="numerics.NumericsClass.compute_rfft">
+<span class="sig-name descname"><span class="pre">compute_rfft</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numerics.NumericsClass.compute_rfft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes real FFT for <cite>efield_data</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="numerics.NumericsClass.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numerics.NumericsClass.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs FFTs and computes autocorrelation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SDCourse</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Software Project for SSD Course 2022</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circle.html">circle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fac_functional.html">fac_functional module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fac_procedural.html">fac_procedural module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in_out_class.html">in_out_class module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">numerics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">statistics module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References and Citations</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">src</a><ul>
+      <li>Previous: <a href="in_out_class.html" title="previous chapter">in_out_class module</a></li>
+      <li>Next: <a href="statistics.html" title="next chapter">statistics module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Dominik Cebulla, Kieran Didi, Ihno Schrot.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/numerics.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
