@@ -31,8 +31,8 @@ class NumericsClass:
         """
 
         # Extract efield data
-        efield = data.efield
-        nstate = data.nstate_i
+        efield = np.copy(data.efield)
+        nstate = np.copy(data.nstate_i)
         self.efield_time, self.efield_data = efield[:, 0], self._rm_blw_thrsh(
             efield[:, 1:], threshold
         )
@@ -74,6 +74,9 @@ class NumericsClass:
 
         Args:
             a (:obj:`numpy.ndarray`): Data whose columns are investigated.
-            tol (float): Threshold.
+            tol (float): Threshold > 0
         """
+        if tol <= 0.0:
+            return a
+
         return a[:, np.var(a, axis=0) > tol]
