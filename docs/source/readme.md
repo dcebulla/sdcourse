@@ -25,3 +25,6 @@
     - Pandas (1.4.1 or higher)
     - Seaborn (0.11.2 or higher)
     - Matplotlib (3.5.1 or higher)
+
+## Step-by-Step Tutorial
+- Check out the main.ipynb file in the src directory!

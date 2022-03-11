@@ -13,6 +13,7 @@ Welcome to SDCourse's documentation!
    readme
    modules
    license
+   references
 
 
 
