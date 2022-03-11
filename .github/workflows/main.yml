@@ -40,7 +40,7 @@ jobs:
         make html
     - name: Run linters
       run: |
-        ${{ matrix.python-version }} -m flake8
+        flake8
         # flake8-nb --extend-ignore="E203, E501"
     - name: Run pytest
       run: |
