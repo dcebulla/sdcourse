@@ -1,0 +1,14 @@
+-[X] Name of the software  
+-[X] Short description of the software  
+-[X] Authors  
+-[X] Date of initial development  
+-[X] Main features  
+-[X] Main requirements  
+-[X] Input examples and explanations, stepby-step tutorial  
+-[ ] More detailed description of scientific approach and input variables reference  
+-[?] Validity range of the parameters  
+-[X] License information  
+-[?] Bug tracker  
+-[?] References   
+-[?] Citations  
+-[X] Source code description - functions and classes, modules, variables 
