@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>in_out_class module &#8212; SDCourse 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="numerics module" href="numerics.html" />
+    <link rel="prev" title="fac_procedural module" href="fac_procedural.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-in_out_class">
+<span id="in-out-class-module"></span><h1>in_out_class module<a class="headerlink" href="#module-in_out_class" title="Permalink to this headline">¶</a></h1>
+<p>This module provides the classes InClass and OutClass.</p>
+<p>From this module one can import the classes InClass and OutClass.
+The class InClass allows to create objects that read in the data.
+The class OutClass allows to create objects that output the results.</p>
+<dl class="simple">
+<dt>Required Packages:</dt><dd><ul class="simple">
+<li><p>pandas</p></li>
+<li><p>numpy</p></li>
+<li><p>matplotlib.pyplot</p></li>
+<li><p>seaborn</p></li>
+</ul>
+</dd>
+<dt>Provides:</dt><dd><ul class="simple">
+<li><p>InClass</p></li>
+<li><p>OutClass</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="in_out_class.InClass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">in_out_class.</span></span><span class="sig-name descname"><span class="pre">InClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.InClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for reading the data.</p>
+<p>Objects of the InClass read the data files in a given path.
+You can either read all files at once using read_data with
+the default option or read the numerics and statistics part
+seperately using read_statistics and read_numerics or you
+can define which files to read by passing a list of the file
+names to read_data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_path</strong> (<em>str</em>) – (Relative) Path of the directory with the
+data files.
+Default: “data/”</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.data_path">
+<span class="sig-name descname"><span class="pre">data_path</span></span><a class="headerlink" href="#in_out_class.InClass.data_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Relative) Path of the directory with the
+data files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.expec">
+<span class="sig-name descname"><span class="pre">expec</span></span><a class="headerlink" href="#in_out_class.InClass.expec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data of the expec.t file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>none or pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.npop">
+<span class="sig-name descname"><span class="pre">npop</span></span><a class="headerlink" href="#in_out_class.InClass.npop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data of the npop.t file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>none or pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.table">
+<span class="sig-name descname"><span class="pre">table</span></span><a class="headerlink" href="#in_out_class.InClass.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data of the table.dat file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>none or numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.efield">
+<span class="sig-name descname"><span class="pre">efield</span></span><a class="headerlink" href="#in_out_class.InClass.efield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data of the efield.t file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>none or numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.nstate_i">
+<span class="sig-name descname"><span class="pre">nstate_i</span></span><a class="headerlink" href="#in_out_class.InClass.nstate_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data of the nstate_i.t file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>none or numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.read_functions">
+<span class="sig-name descname"><span class="pre">read_functions</span></span><a class="headerlink" href="#in_out_class.InClass.read_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary that maps file name to
+suitable tailored reader function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.InClass.names_to_attributes">
+<span class="sig-name descname"><span class="pre">names_to_attributes</span></span><a class="headerlink" href="#in_out_class.InClass.names_to_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary that maps file names to
+class attributes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="in_out_class.InClass.read_data">
+<span class="sig-name descname"><span class="pre">read_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['expec.t',</span> <span class="pre">'npop.t',</span> <span class="pre">'table.dat',</span> <span class="pre">'efield.t',</span> <span class="pre">'nstate_i.t']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.InClass.read_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads all the files whose names are given as input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_names</strong> (<em>list of str</em>) – List of file names.
+Default: file_names=[
+“expec.t”,
+“npop.t”,
+“table.dat”,
+“efield.t”,
+“nstate_i.t”,
+]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="in_out_class.InClass.read_numerics_data">
+<span class="sig-name descname"><span class="pre">read_numerics_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.InClass.read_numerics_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls read_data with file names that correspond to numerics.</p>
+<p>The relevant file names are [“efield.t”, “nstate_i.t”]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="in_out_class.InClass.read_statistics_data">
+<span class="sig-name descname"><span class="pre">read_statistics_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.InClass.read_statistics_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls read_data with file names that correspond to statistics.</p>
+<p>The relevant file names are [“expec.t”, “npop.t”, “table.dat”]</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="in_out_class.OutClass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">in_out_class.</span></span><span class="sig-name descname"><span class="pre">OutClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">statistics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numerics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savepdf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.OutClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for outputting the results.</p>
+<p>Based on a statistics and a numerics object the OutClass creates
+objects which provide functions to plot relevant plots and save
+relevant results. Plots can be saved to files, too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statistics</strong> (<em>object of StatisticsClass</em>) – Object of
+StatisticsClass which contains the results of the
+statistical analysis.</p></li>
+<li><p><strong>numerics</strong> (<em>object of NumericsClass</em>) – Object of
+NumericsClass which contains the results of the
+statistical analysis.</p></li>
+<li><p><strong>savepdf</strong> (<em>bool</em>) – Flag whether the plots should be saved to PDF
+files (True) or not (False). Default: False</p></li>
+<li><p><strong>write_out</strong> (<em>bool</em>) – Flag whether the results should be saved in
+files (True) or not (False). Default: False</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.OutClass.statistics">
+<span class="sig-name descname"><span class="pre">statistics</span></span><a class="headerlink" href="#in_out_class.OutClass.statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object of
+StatisticsClass which contains the results of the
+statistical analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object of StatisticsClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.OutClass.numerics">
+<span class="sig-name descname"><span class="pre">numerics</span></span><a class="headerlink" href="#in_out_class.OutClass.numerics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object of
+NumericsClass which contains the results of the
+statistical analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object of NumericsClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.OutClass.savepdf">
+<span class="sig-name descname"><span class="pre">savepdf</span></span><a class="headerlink" href="#in_out_class.OutClass.savepdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag whether the plots should be saved to PDF
+files (True) or not (False). Default: False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="in_out_class.OutClass.write_out">
+<span class="sig-name descname"><span class="pre">write_out</span></span><a class="headerlink" href="#in_out_class.OutClass.write_out" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag whether the results should be saved in
+files (True) or not (False). Default: False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="in_out_class.OutClass.plot_numerics">
+<span class="sig-name descname"><span class="pre">plot_numerics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.OutClass.plot_numerics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot all numerics plots. Possibly save them.</p>
+<p>The plots will be displayed in the main notebook. Depending on
+the flag savepdf, the plots are also saved to pdf files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="in_out_class.OutClass.plot_statistics">
+<span class="sig-name descname"><span class="pre">plot_statistics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.OutClass.plot_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot all statistic plots. Possibly save them.</p>
+<p>The plots will be displayed in the main notebook. Depending on
+the flag savepdf, the plots are also saved to pdf files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="in_out_class.OutClass.statistics_out">
+<span class="sig-name descname"><span class="pre">statistics_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#in_out_class.OutClass.statistics_out" title="Permalink to this definition">¶</a></dt>
+<dd><p>Possibly write output files (expect for plots) for statistics.</p>
+<dl class="simple">
+<dt>The output files are:</dt><dd><ul class="simple">
+<li><p>task4_out.csv</p></li>
+<li><p>task5_out.npy</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SDCourse</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Software Project for SSD Course 2022</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circle.html">circle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fac_functional.html">fac_functional module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fac_procedural.html">fac_procedural module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">in_out_class module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics.html">numerics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">statistics module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References and Citations</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">src</a><ul>
+      <li>Previous: <a href="fac_procedural.html" title="previous chapter">fac_procedural module</a></li>
+      <li>Next: <a href="numerics.html" title="next chapter">numerics module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Dominik Cebulla, Kieran Didi, Ihno Schrot.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/in_out_class.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
